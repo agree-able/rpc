@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-npm install @agree-able/contract @agreeable/rpc
+npm install @agree-able/contract @agree-able/rpc
 ```
 
 ## Basic Usage

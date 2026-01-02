@@ -13,7 +13,7 @@ const MyRoute = addRoute(
 )
 ```
 
-## @agreeable/rpc
+## @agree-able/rpc
 
 ### `host(agreement, implementation, options?)`
 Starts a server implementing an agreement.
