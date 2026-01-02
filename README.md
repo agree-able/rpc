@@ -14,7 +14,7 @@
 ### 1. Install
 
 ```bash
-npm i @agree-able/contract @agreeable/rpc
+npm i @agree-able/contract @agree-able/rpc
 ```
 
 ### 2. Define Your API (agreement.mjs)
