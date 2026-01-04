@@ -1,5 +1,5 @@
 // @ts-check
-import { z, Caller } from '@agree-able/rpc'
+import { z, Caller } from '../index.mjs'
 import agreement, { AddTwo, Ping, GenerateNickname } from './agreement.mjs';
 
 const peerKey = process.argv[2]
@@ -12,9 +12,12 @@ const caller = new Caller(peerKey)
 // @ts-expect-error
 const { addTwo, ping, generateNickname } = caller.proxy(agreement)
 
-const results = await addTwo({ a: 1, b: 2 })
-console.log(results)
-await ping()
+const sum = await addTwo({ a: 1, b: 2 })
+console.log(sum)
+
+await ping({})
+
 const nickname = await generateNickname({ first: 'steve', last: 'smith' })
 console.log(nickname)
+
 caller.destroy()

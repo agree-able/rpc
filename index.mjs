@@ -18,6 +18,7 @@ export async function host (agreement, implementation, opts) {
   }
   const server = dht.createServer(connect)
   await server.listen(keyPair)
+  console.log('Public key:', hie.encode(keyPair.publicKey))
   return { dht, keyPair, server, channel }
 }
 

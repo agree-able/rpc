@@ -1,6 +1,6 @@
 # Agreeable RPC
 
-🤝 Type-safe P2P RPC that just works. A [🍐](https://docs.pears.com) project.
+🤝 Type-safe P2P RPC that just works. A [🍐 Pear](https://docs.pears.com) project.
 
 ## Why Agreeable RPC?
 
@@ -11,10 +11,12 @@
 
 ## Quick Start
 
+See [demo/](https://github.com/agree-able/rpc/tree/master/demo) for a complete example.
+
 ### 1. Install
 
 ```bash
-npm i @agree-able/contract @agreeable/rpc
+npm i @agree-able/contract @agree-able/rpc
 ```
 
 ### 2. Define Your API (agreement.mjs)
@@ -74,7 +76,7 @@ console.log(result) // 3
 caller.destroy()
 ```
 
-## Running the Example
+## Running
 
 1. Start the server:
 ```bash
@@ -99,5 +101,3 @@ Use our UI tool to explore and test your APIs: [https://github.com/agree-able/ui
 ## Contributing
 
 We welcome contributions! See our [contributing guide](CONTRIBUTING.md) for details.
-
-

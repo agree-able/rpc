@@ -6,7 +6,8 @@ export const AddTwo = z.function().args(z.object({
   b: z.number().describe('the second number')
 })).returns(z.promise(z.number().describe('the sum of a and b')))
 
-export const Ping = z.function().args().returns(z.promise())
+export const Ping = z.function().args(z.object({
+})).returns(z.promise())
 
 export const GenerateNickname = z.function().args(z.object({
   first: z.string().describe('the first name'),
@@ -25,4 +26,3 @@ const api = {
   }
 }
 export default api 
-
