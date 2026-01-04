@@ -1,15 +1,15 @@
 // @ts-check
-import { loadAgreement, host, z }  from '@agree-able/rpc'
+import { loadAgreement, host, z } from '../index.mjs'
 import { AddTwo, Ping, GenerateNickname } from './agreement.mjs'
 
 /** @type { z.infer<AddTwo> } addTwo */
-const addTwo = async ({a, b}) => a + b
+const addTwo = async ({ a, b }) => a + b
    
 /** @type { z.infer<Ping> } ping */
 const ping = async () => console.log('pinged!')
 
 /** @type { z.infer<GenerateNickname> } generateNickname */
-const generateNickname = async ({first}) => `silly ${first}`
+const generateNickname = async ({ first }) => `silly ${first}`
 
 host(await loadAgreement('./agreement.mjs', import.meta.url), { 
   addTwo, ping, generateNickname 
