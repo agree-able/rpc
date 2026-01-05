@@ -1,4 +1,4 @@
-import hie from 'hypercore-id-encoding'
+import { decode } from 'hypercore-id-encoding'
 import DHT from 'hyperdht'
 import Protomux from 'protomux'
 import Channel from 'jsonrpc-mux'
@@ -9,7 +9,7 @@ export async function host (agreement, implementation, opts) {
   if (!opts) opts = {}
   if (!opts.validator) opts.validator = async () => {}
   const dht = opts.dht? opts.dht : new DHT(opts.dhtOpts)
-  const seedBuf = opts.seed ? hie.decode(opts.seed) : null
+  const seedBuf = opts.seed ? decode(opts.seed) : null
   const keyPair = DHT.keyPair(seedBuf)
   let channel = null
   const connect = c => {
@@ -18,7 +18,6 @@ export async function host (agreement, implementation, opts) {
   }
   const server = dht.createServer(connect)
   await server.listen(keyPair)
-  console.log('Public key:', hie.encode(keyPair.publicKey))
   return { dht, keyPair, server, channel }
 }
 
@@ -32,7 +31,7 @@ export function seedFromArgv () {
 export function Caller (peerKey, setHeaders) {
   if (!setHeaders) setHeaders = () => {}
   this.setHeaders = setHeaders
-  this.publicKey = hie.decode(peerKey)
+  this.publicKey = decode(peerKey)
   this.node = new DHT()
   this.conn = this.node.connect(this.publicKey)
   this.framed = new Channel(new Protomux(this.conn))

@@ -15,14 +15,13 @@ export const GenerateNickname = z.function().args(z.object({
 })).returns(z.promise(z.string()))
 
 const api = { 
-  role: 'testthisout', 
+  role: 'example', 
   version: '1.0.0',
   description: 'a simple example api',
   routes: {
     addTwo: addRoute(AddTwo),
     ping: addRoute(Ping),
     generateNickname: addRoute(GenerateNickname)
-    // ping2: addRoute(Ping2)
   }
 }
 export default api 
